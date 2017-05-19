@@ -13,4 +13,4 @@ export default class MobileMessenger extends Component {
   }
 }
 
-AppRegistry.registerComponent('MobileMessenger', () => MobileMessenger)
+AppRegistry.registerComponent('main', () => MobileMessenger)
