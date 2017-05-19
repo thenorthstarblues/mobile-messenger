@@ -22,7 +22,6 @@ export default class Login extends Component {
   render(){
     return (
       <View style={styles.container}>
-        <View style={styles.loginContainer}>
           <TextInput
             style={styles.input}
             value={this.state.username}
@@ -38,7 +37,6 @@ export default class Login extends Component {
             >
             <Text style={styles.label}>LOGIN</Text>
           </TouchableHighlight>
-        </View>
       </View>
     );
   }
@@ -49,12 +47,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#6E5BAA',
-  },
-  loginContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: '#8dffca',
   },
   input: {
     width: 250,
@@ -68,14 +61,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
   },
   button: {
-    justifyContent: 'center',
-    alignItems: 'center',
     borderWidth: 1,
     borderRadius: 5,
     borderColor: '#328FE6',
     padding: 10,
     marginTop: 10,
-    backgroundColor: '#32c5e6',
+    backgroundColor: '#8dc2ff',
   },
   label: {
     width: 230,
