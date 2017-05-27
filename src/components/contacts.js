@@ -13,19 +13,19 @@ const contactList = [
     id: 1,
     name: 'David',
     image: require('../assets/img/david.jpg'),
-    status: 'sample status',
+    status: 'I <3 balloons',
   },
   {
     id: 2,
     name: 'Jerry',
     image: require('../assets/img/jerry.jpg'),
-    status: 'sample status',
+    status: 'Goin down the road...',
   },
   {
     id: 3,
     name: 'Dream Dog',
     image: require('../assets/img/puppy.jpg'),
-    status: 'sample status',
+    status: 'bork bork',
   },
 ];
 
@@ -40,25 +40,31 @@ class Contacts extends Component {
     console.log('button working');
   }
 
+  createContact = (contact) => {
+    return (
+      <TouchableHighlight onPress={() => this.onContactPress()}>
+        <View style={styles.listItem}>
+          <View style={styles.listIcon}>
+            <Image
+              style={styles.channelIcon}
+              source={contact.image}
+            />
+          </View>
+          <View style={styles.listInfo}>
+            <Text style={styles.titleLabel}>{contact.name}</Text>
+            <Text style={styles.memberLabel}>{contact.status}</Text>
+          </View>
+        </View>
+      </TouchableHighlight>
+    )
+  }
+
     render () {
       return (
         <View style={styles.container}>
           <View style={styles.listContainer}>
             <ScrollView>
-              <TouchableHighlight onPress={() => this.onContactPress()}>
-                <View style={styles.listItem}>
-                  <View style={styles.listIcon}>
-                    <Image
-                      style={styles.channelIcon}
-                      source={contactList[1].image}
-                    />
-                  </View>
-                  <View style={styles.listInfo}>
-                    <Text style={styles.titleLabel}>{contactList[1].name}</Text>
-                    <Text style={styles.memberLabel}>{contactList[1].status}</Text>
-                  </View>
-                </View>
-              </TouchableHighlight>
+            {contactList.map(this.createContact)}
             </ScrollView>
           </View>
         </View>
