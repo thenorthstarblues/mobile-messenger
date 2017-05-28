@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
-import {
-  View,
-  Text,
-  TextInput,
-  TouchableHighlight,
-  StyleSheet,
-} from 'react-native';
+import { View, StyleSheet } from 'react-native';
+import { Button, Icon, FormInput } from 'react-native-elements';
 
 export default class Login extends Component {
   constructor(props) {
@@ -22,21 +17,28 @@ export default class Login extends Component {
   render(){
     return (
       <View style={styles.container}>
-          <TextInput
+        <View style={styles.iconBox}>
+          <Icon
+            name='chat-bubble-outline'
+            size='60'
+            color='rgba(0,0,0,0.6)'
+          />
+        </View>
+        <View style={styles.loginBox}>
+          <FormInput
             style={styles.input}
             value={this.state.username}
             onChangeText={(text) => this.setState({username: text})}
-            placeholder={'Enter User Nickname'}
-            maxLength={12}
-            multiline={false}
+            placeholder={'Enter Username'}
             />
-          <TouchableHighlight
-            style={styles.button}
-            underlayColor={'#328FE6'}
+          <Button
+            buttonStyle={styles.button}
             onPress={this.onPress}
+            textStyle={styles.label}
+            title={'LOGIN'}
             >
-            <Text style={styles.label}>LOGIN</Text>
-          </TouchableHighlight>
+          </Button>
+        </View>
       </View>
     );
   }
@@ -47,33 +49,26 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#ffffff',
+  },
+  iconBox: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  loginBox: {
+    flex: 1,
   },
   input: {
     width: 250,
-    color: '#555555',
     padding: 10,
     height: 50,
-    borderColor: '#32C5E6',
-    borderWidth: 1,
-    borderRadius: 4,
-    alignSelf: 'center',
-    backgroundColor: '#ffffff',
   },
   button: {
-    borderWidth: 1,
-    borderRadius: 5,
-    borderColor: '#328FE6',
     padding: 10,
     marginTop: 10,
-    backgroundColor: '#8dc2ff',
   },
   label: {
-    width: 230,
-    alignSelf: 'center',
     textAlign: 'center',
     fontSize: 20,
     fontWeight: '600',
-    color: '#ffffff',
   },
 });
