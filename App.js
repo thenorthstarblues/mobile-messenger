@@ -1,20 +1,18 @@
-import { View, AppRegistry, StyleSheet } from 'react-native';
 import React, { Component } from 'react';
+import { AppRegistry } from 'react-native';
+import { Scene, Router } from 'react-native-router-flux';
 import Login from './src/components/login';
 import Contacts from './src/components/contacts';
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default class MobileMessenger extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Login />
-      </View>
+      <Router>
+        <Scene key="root">
+          <Scene key="login" component={Login} title="Login" />
+          <Scene key="contact" component={Contacts} title="Contacts" />
+        </Scene>
+      </Router>
     );
   }
 }
