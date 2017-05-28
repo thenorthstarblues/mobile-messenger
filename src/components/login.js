@@ -5,7 +5,9 @@ import {
   TextInput,
   TouchableHighlight,
   StyleSheet,
+  Image,
 } from 'react-native';
+import { Button } from 'react-native-elements';
 
 export default class Login extends Component {
   constructor(props) {
@@ -22,6 +24,10 @@ export default class Login extends Component {
   render(){
     return (
       <View style={styles.container}>
+        <View style={styles.iconBox}>
+          <Image source={require('../assets/icons/chat.png')} />
+        </View>
+        <View style={styles.loginBox}>
           <TextInput
             style={styles.input}
             value={this.state.username}
@@ -30,13 +36,14 @@ export default class Login extends Component {
             maxLength={12}
             multiline={false}
             />
-          <TouchableHighlight
-            style={styles.button}
-            underlayColor={'#328FE6'}
+          <Button
+            buttonStyle={styles.button}
             onPress={this.onPress}
+            textStyle={styles.label}
+            title={'LOGIN'}
             >
-            <Text style={styles.label}>LOGIN</Text>
-          </TouchableHighlight>
+          </Button>
+        </View>
       </View>
     );
   }
@@ -47,33 +54,34 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#ffffff',
+  },
+  iconBox: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  loginBox: {
+    flex: 1,
   },
   input: {
     width: 250,
     color: '#555555',
     padding: 10,
     height: 50,
-    borderColor: '#32C5E6',
     borderWidth: 1,
     borderRadius: 4,
+    borderColor: 'rgba(0, 0, 0, 0.3)',
     alignSelf: 'center',
     backgroundColor: '#ffffff',
   },
   button: {
-    borderWidth: 1,
     borderRadius: 5,
-    borderColor: '#328FE6',
     padding: 10,
     marginTop: 10,
-    backgroundColor: '#8dc2ff',
   },
   label: {
-    width: 230,
-    alignSelf: 'center',
     textAlign: 'center',
+    width: 230,
     fontSize: 20,
     fontWeight: '600',
-    color: '#ffffff',
   },
 });

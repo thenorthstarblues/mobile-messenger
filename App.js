@@ -13,7 +13,7 @@ export default class MobileMessenger extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Contacts />
+        <Login />
       </View>
     );
   }
