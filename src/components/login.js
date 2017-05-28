@@ -7,7 +7,7 @@ import {
   StyleSheet,
   Image,
 } from 'react-native';
-import { Button } from 'react-native-elements';
+import { Button, Icon } from 'react-native-elements';
 
 export default class Login extends Component {
   constructor(props) {
@@ -25,7 +25,11 @@ export default class Login extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.iconBox}>
-          <Image source={require('../assets/icons/chat.png')} />
+          <Icon
+            name='chat-bubble-outline'
+            size='60'
+            color='rgba(0,0,0,0.6)'
+          />
         </View>
         <View style={styles.loginBox}>
           <TextInput
